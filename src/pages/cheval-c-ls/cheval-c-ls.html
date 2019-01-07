@@ -1,0 +1,90 @@
+<!--
+  Generated template for the ChevalCLs page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+
+ <ion-toolbar >
+
+    <ion-title style="text-align: center ;"> <img src="assets/img/logo1.png"  height="60%" /> </ion-title>
+
+  </ion-toolbar>
+
+  <ion-navbar  color ="navb">
+    <ion-title>{{chevalcls[0].annee}} </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+
+ <p> Classement des 50 premiers cheveaux en <b> {{chevalcls[0].annee}} </b> </p>
+ <div padding style="padding-bottom: 13px;">
+    <ion-segment [(ngModel)]="segment">
+      <ion-segment-button value="Classement">
+        Classement
+      </ion-segment-button>
+      <ion-segment-button value="Suivant">
+        Suivant
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+    <div [ngSwitch]="segment">
+      <ion-grid *ngSwitchCase="'Classement'">
+
+          <ion-row style="background-color: #eae2cd ; font-weight: bold ;">
+          <ion-col width-50 >
+            Nom
+          </ion-col  >
+
+          <ion-col  width-20  >
+            Sexe 
+          </ion-col >
+
+          <ion-col  width-30  >
+            Course
+          </ion-col >
+
+      </ion-row>
+   <ion-row *ngFor="let m of (members | orderBy) ; let i=index" >
+ 
+    <ion-col width-50 *ngIf="i<50"> <b> {{m.Nom}}  </b> </ion-col>
+    <ion-col width-20 *ngIf="i<50" > {{m.sexe}} </ion-col>
+    <ion-col width-30 *ngIf="i<50" style="text-align: center"> {{m.Vict + m.plc}} </ion-col>
+ 
+
+   </ion-row>
+      </ion-grid>
+  <ion-grid *ngSwitchCase="'Suivant'">
+
+          <ion-row style="background-color: #eae2cd ; font-weight: bold ;">
+          <ion-col>
+            Vict
+          </ion-col >
+
+          <ion-col  > Plc       </ion-col >
+
+          <ion-col   >
+            Gain
+          </ion-col >
+
+      </ion-row>
+    <ion-row *ngFor="let m of (members | orderBy) ; let i=index" >
+    <ion-col width-40 *ngIf="i<50"> <b> {{m.Vict}}  </b> </ion-col>
+    <ion-col width-30 *ngIf="i<50" > {{m.plc}} </ion-col>
+    <ion-col width-30  *ngIf="i<50" > {{m.Gain}}</ion-col>
+
+   </ion-row>
+  </ion-grid>
+    </div>
+
+</ion-content>
+     <ion-footer >
+    <ion-toolbar color="navb" style="min-height: 47px; padding : 0px; text-align : center ;">
+         <ion-title class="style1"> <img src="assets/img/logo.png" /></ion-title>
+    </ion-toolbar>
+  </ion-footer>

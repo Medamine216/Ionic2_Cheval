@@ -1,0 +1,64 @@
+<!--
+  Generated template for the ListeAnnee page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+   <ion-toolbar >
+
+    <ion-title style="text-align: center ;"> <img src="assets/img/logo1.png"  height="60%" /> </ion-title>
+
+  </ion-toolbar>
+
+  <ion-navbar  color ="navb">
+    <ion-title>liste des années</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+
+
+<!-- Cheval -->
+<div *ngIf="nom== 'Cheval'">
+  <ion-list>
+  <ion-item *ngFor="let item of annee" (click)="View(item)">
+     <ion-avatar   item-left >
+             <img src="assets/img/year.png">
+    </ion-avatar >
+      <h2 style="text-align: center ;">  {{item[0].annee}}</h2>
+     
+  </ion-item>
+</ion-list>
+</div>
+<!-- Etalon -->
+<div *ngIf="nom== 'Étalon'">
+  <ion-list>
+  <ion-item *ngFor="let item of annee" (click)="View(item)">
+     <ion-avatar   item-left >
+             <img src="assets/img/year.png">
+    </ion-avatar >
+      <h2 style="text-align: center ;">  {{item[0].annee}}</h2>
+     
+  </ion-item>
+</ion-list>
+</div>
+<!-- Pere de Mere -->
+<div *ngIf="nom== 'Père de mère'">
+  <ion-list>
+  <ion-item *ngFor="let item of annee" (click)="View(item)">
+     <ion-avatar   item-left >
+             <img src="assets/img/year.png">
+    </ion-avatar >
+      <h2 style="text-align: center ;">  {{item[0].annee}}</h2>
+  </ion-item>
+</ion-list>
+</div>
+</ion-content>
+  <ion-footer >
+    <ion-toolbar color="navb" style="min-height: 47px; padding : 0px; text-align : center ;">
+         <ion-title class="style1"> <img src="assets/img/logo.png" /></ion-title>
+    </ion-toolbar>
+  </ion-footer>

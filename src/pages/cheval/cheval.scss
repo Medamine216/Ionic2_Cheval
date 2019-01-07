@@ -1,0 +1,50 @@
+.ios , .wp , .md 
+{
+
+page-cheval {
+
+ .header_img {
+
+    height: 60px; 
+    background-color: #f8f9fb;
+    text-align: center;
+   }     
+
+
+p {
+    margin: 0px;
+}
+
+// ion-list{
+//         border-bottom: 2px solid #4d4b10;
+// }
+// ion-item{
+//     border-bottom: 2px solid #230d0d;
+//     position: relative;
+//     padding-right: 1px;
+//     padding-left: 2px;
+//     font-size: 3.6rem;
+//     font-weight: normal;
+//     text-transform: capitalize;
+//     color: #b78f5e;
+//     background-color: #f8f8f8;
+//     box-shadow: none;
+//     transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+// }
+ ion-row {
+    font-size: 1.3rem ;
+    font-family: "Times New Roman", Times, serif;
+}
+ion-col {
+    border-bottom : 1px solid   #b5a881 ;
+    padding: 3px 3px  3px 3px ;
+    margin-top: 12px;
+}
+
+.header_cheval {
+ background-color: rgba(93, 51, 35, 0.89);
+    height: 4px;
+}
+}
+
+} 

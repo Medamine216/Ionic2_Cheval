@@ -1,0 +1,118 @@
+<!--
+  Generated template for the DetailJockey page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+   <ion-toolbar >
+
+    <ion-title style="text-align: center ;"> <img src="assets/img/logo1.png"  height="60%" /> </ion-title>
+
+  </ion-toolbar >
+  <ion-navbar color ="navb">
+    <ion-title>{{idJockey.Jockey.nom}} {{idJockey.Jockey.prenom}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+  <h2 >Palmarès personnes : Jockey </h2>
+
+   <div padding style="padding-bottom: 13px;">
+    <ion-segment [(ngModel)]="jockeys">
+      <ion-segment-button value="Performance">
+        Performance
+      </ion-segment-button>
+      <ion-segment-button value="Carrière">
+        Carrière
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  
+  <div [ngSwitch]="jockeys">
+    <ion-grid *ngSwitchCase="'Performance'">
+  <ion-row style="background-color: #eae2cd ; font-weight: bold ;">
+          <ion-col width-25>
+            Date
+          </ion-col >
+
+          <ion-col width-35>
+            Prix 
+          </ion-col >
+          <ion-col width-20>
+            distance
+          </ion-col >
+         <ion-col width-20>
+             Alloc.(DT)
+         </ion-col >
+      </ion-row>
+      <ion-row *ngFor="let e of jockey">
+        <ion-col width-25>  <b> {{e.Course.date}} </b></ion-col>
+
+          <ion-col width-35 >{{e.Course.nom_du_prix}} </ion-col>
+   
+          <ion-col width-20> {{e.Course.distance}} </ion-col>
+          <ion-col width-20> {{e.Course.allocation}} </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngSwitchCase="'Carrière'">
+        
+       <ion-row style="background-color: #eae2cd ; font-weight: bold ; text-align: center ;">
+          <ion-col width-25 style="text-align: left ;">
+            Année
+          </ion-col >
+
+          <ion-col width-20>
+            Nb. Crs 
+          </ion-col >
+
+          <ion-col width-15>
+            Vict
+          </ion-col >
+         <ion-col width-20>
+            Plc
+         </ion-col >
+         <ion-col width-20>
+          Alloc.Tot
+          </ion-col >
+      </ion-row>
+      <ion-row *ngFor="let item of year">
+        <ion-col width-25>  {{item[0].annee}}  </ion-col>
+
+          <ion-col width-20 style="text-align: center ;" > {{filterDataAuto(item[0].annee).length}} </ion-col>
+          <ion-col width-15  style="text-align: center ;"  >{{reduceDataVict(filterDataAuto(item[0].annee))}}  </ion-col>    
+          <ion-col width-20   style="text-align: center ;" >  {{filterDataAuto(item[0].annee).length - reduceDataVict(filterDataAuto(item[0].annee)) }} </ion-col>
+          <ion-col width-20  style="text-align: center ;" > {{reduceDataAuto(filterDataAuto(item[0].annee))}}</ion-col>
+      </ion-row>
+         <ion-row style="background-color: #eae2cd ; font-weight: bold ; text-align: center ;">
+          <ion-col width-25  style="text-align: left ;">
+            <b>Total </b>
+          </ion-col >
+
+          <ion-col width-20>
+            {{jockey.length}}
+          </ion-col >
+
+          <ion-col width-15>
+            {{ reduceDataTotVict()}}
+          </ion-col >
+         <ion-col width-20>
+            {{ jockey.length - reduceDataTotVict()}}
+         </ion-col >
+         <ion-col width-20>
+          {{reduceTotAlloc() | number}}
+          </ion-col >
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>
+    <ion-footer >
+    <ion-toolbar color="navb" style="min-height: 47px; padding : 0px; text-align : center ;">
+         <ion-title class="style1"> <img src="assets/img/logo.png" /></ion-title>
+    </ion-toolbar>
+  </ion-footer>
+

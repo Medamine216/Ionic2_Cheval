@@ -1,0 +1,84 @@
+<!--
+  Generated template for the Cheval page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-toolbar class="toolbarimg">
+    <button ion-button menuToggle="left">
+                <ion-icon name="menu"></ion-icon>
+              </button>
+    <div class="header_img">
+
+      <img src="assets/img/logo1.png" />
+
+    </div>
+    <ion-buttons end>
+      <button ion-button>
+            <ion-icon name="search"></ion-icon>
+          
+      </button>
+    </ion-buttons>
+
+  </ion-toolbar>
+  <ion-navbar color="navb">
+    <ion-title >Liste des Chevaux</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content style="background-color: #f8f9fb;">
+
+  <!--<ion-searchbar color="appbase" (input)="searchCh($event, searchKey)"></ion-searchbar>
+  <ion-list>
+  <ion-item  *ngFor="let member of members" (click)="Viewperson(member)"> 
+    <h2>{{member.Cheval.nom}}</h2>
+    <p>{{member.Cheval.ne}}</p>
+    <button ion-button clear item-right (click)="View(member)">View</button>
+  </ion-item>
+</ion-list>-->
+
+  <!--Partie Compteurs Segment-->
+  <div class="header_cheval">
+    <b></b>
+  </div>
+  <ion-searchbar (keyup)="getItems($event)"></ion-searchbar>
+
+  <ion-row style="background-color: #eae2cd;  font-weight: bold; ">
+
+    <ion-col width-35><b>Chevaux</b></ion-col>
+    <ion-col width-20 style="text-align: center;"> <b>Sexe </b></ion-col>
+    <ion-col width-25 style="text-align: center;"><b>Race</b></ion-col>
+    <ion-col width-20 style="text-align: center;"><b>Année</b></ion-col>
+
+  </ion-row>
+
+  <ion-row *ngFor="let member of searchMembers" (click)="View(member)">
+
+    <ion-col width-35>
+      <b>   {{member.Cheval.nom}} </b>
+    </ion-col>
+
+    <ion-col width-20 style="text-align: center;">
+      <p *ngIf="member.Cheval.sexe==1">M</p>
+      <p *ngIf="member.Cheval.sexe==2">F</p>
+    </ion-col>
+    <ion-col width-25 style="text-align: center;">
+      <p *ngIf="member.Race.id==1"> P.S.A </p>
+      <p *ngIf="member.Race.id==2"> (TN) </p>
+    </ion-col>
+    <ion-col width-20 style="text-align: center;">
+      {{member.Cheval.ne}}
+    </ion-col>
+
+
+  </ion-row>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="navb" style="min-height: 47px; padding : 0px; text-align : center ;">
+    <ion-title class="style1"> <img src="assets/img/logo.png" /></ion-title>
+  </ion-toolbar>
+</ion-footer>

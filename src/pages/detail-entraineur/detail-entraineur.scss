@@ -1,0 +1,44 @@
+.ios ,.wp  , .md {
+
+
+page-detail-entraineur {
+
+ion-content {
+font-family: "Times New Roman", Times, serif;
+
+}
+
+ion-col {
+    border-bottom : 1px solid  #b5a881 ;
+    padding: 3px;
+    margin : 5px 0px 0px 0px ;
+}
+ion-row {
+    font-size: 12px ;
+}
+ ion-row:nth-child(odd) {
+  background-color: #f3f8fc;
+}
+ion-row:nth-child(even) {
+  background-color: #ffffff;
+}
+ion-grid {
+    padding: 0px;
+    margin-top: 10px;
+}
+
+.segment-button.segment-activated {
+  
+    background-color: #b5a881;
+        border-color: #424242;
+}
+.segment-button{
+        color: #f8f9fb;
+       background-color: rgba(34, 34, 34, 0.85);
+        border-color: #424242;
+        text-transform: capitalize;
+        height: 35px;
+}
+
+}
+}

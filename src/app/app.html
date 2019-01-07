@@ -1,0 +1,38 @@
+
+<ion-menu id="menu1" side="left" type="push" [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Esmet Ali</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button menuClose="menu1" ion-item *ngFor="let p of pages" >
+        {{ p }}
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+<!-- <ion-menu id="menu2" side="right" type="push" [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>search</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <ion-label>Date</ion-label>
+    <ion-select >
+      <ion-option *ngFor="let m of cheval" value="nes">{{m.Cheval.nom}}</ion-option>
+    </ion-select>
+    </ion-list>
+  </ion-content>
+</ion-menu> -->
+
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content ></ion-nav>
+

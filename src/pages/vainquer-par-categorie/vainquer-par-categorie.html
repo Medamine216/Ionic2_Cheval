@@ -1,0 +1,220 @@
+<!--
+  Generated template for the VainquerParCategorie page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-toolbar>
+
+    <ion-title style="text-align: center ;"> <img src="assets/img/logo1.png" height="60%" /> </ion-title>
+
+  </ion-toolbar>
+  <ion-navbar color="navb">
+    <ion-title>Vainquer Par Catégorie</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div padding style="padding-bottom: 13px;">
+    <ion-segment [(ngModel)]="segment">
+      <ion-segment-button value="Vainqueur">
+        Vainqueur
+      </ion-segment-button>
+      <ion-segment-button value="Suivant">
+        Suivant
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <div *ngIf="vainquer.chevaux=='Etalons'">
+    <div [ngSwitch]="segment">
+      <ion-grid *ngSwitchCase="'Vainqueur'">
+        <h2>{{type}}</h2>
+        <ion-row style="background-color: #eae2cd ; font-weight: bold ;">
+          <ion-col width-40>{{type}}</ion-col>
+          <ion-col width-40>prix</ion-col>
+          <ion-col width-20>Distance</ion-col>
+
+        </ion-row>
+        <ion-row *ngFor="let member of members">
+
+          <ion-col width-40> {{member.Cheval.nom_p}}</ion-col>
+
+          <ion-col width-40> {{member.Course.nom_du_prix}}</ion-col>
+
+          <ion-col width-20> {{member.Course.distance}}</ion-col>
+
+        </ion-row>
+      </ion-grid>
+      <ion-grid *ngSwitchCase="'Suivant'">
+        <h2>Etalons</h2>
+        <ion-row style="background-color: #eae2cd ; font-weight: bold ;">
+          <ion-col width-45>Etalon</ion-col>
+          <ion-col width-25>Allocation</ion-col>
+          <ion-col width-30>Chevaux</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let member of members">
+
+          <ion-col width-45> {{member.Cheval.nom_p}}</ion-col>
+          <ion-col width-25> {{member.Course.allocation}}</ion-col>
+          <ion-col width-30>
+            {{member.Cheval.nom}}
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </div>
+  </div>
+  <!-- pere de mere -->
+  <div *ngIf="vainquer.chevaux=='Père de mère'">
+    <div [ngSwitch]="segment">
+      <ion-grid *ngSwitchCase="'Vainqueur'">
+        <h2>Père de mère</h2>
+        <ion-row style="background-color: #eae2cd ; font-weight: bold ;">
+          <ion-col width-40>Père de mère</ion-col>
+          <ion-col width-40>prix</ion-col>
+          <ion-col width-20>Distance</ion-col>
+
+        </ion-row>
+        <ion-row *ngFor="let member of members">
+          <ion-col width-40> {{member.Cheval.nom_pm}}</ion-col>
+
+          <ion-col width-40> {{member.Course.nom_du_prix}}</ion-col>
+
+          <ion-col width-20> {{member.Course.distance}}</ion-col>
+
+        </ion-row>
+      </ion-grid>
+      <ion-grid *ngSwitchCase="'Suivant'">
+        <h2>{{type}}</h2>
+        <ion-row style="background-color: #eae2cd ; font-weight: bold ;">
+          <ion-col width-50>Père de mère</ion-col>
+
+          <ion-col width-20>Allocation</ion-col>
+          <ion-col width-30>Chevaux</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let member of members">
+          <ion-col width-50> {{member.Cheval.nom_pm}}</ion-col>
+          <ion-col width-20> {{member.Course.allocation}}</ion-col>
+          <ion-col width-30> {{member.Cheval.nom}} </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+
+  <!-- Eleveur -->
+
+  <div *ngIf="vainquer.chevaux=='Eleveur'">
+    <div [ngSwitch]="segment">
+      <ion-grid *ngSwitchCase="'Vainqueur'">
+        <h2>Eleveurs</h2>
+        <ion-row style="background-color: #eae2cd ; font-weight: bold ;">
+          <ion-col width-40>Eleveurs</ion-col>
+          <ion-col width-40>prix</ion-col>
+          <ion-col width-20>Distance</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let member of members">
+          <ion-col width-40> {{member.Eleveur.nom_prenom}}</ion-col>
+
+          <ion-col width-40> {{member.Course.nom_du_prix}}</ion-col>
+
+          <ion-col width-20> {{member.Course.distance}}</ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid *ngSwitchCase="'Suivant'">
+        <h2>{{type}}</h2>
+        <ion-row style="background-color: #eae2cd ; font-weight: bold ;">
+          <ion-col width-40>Eleveurs</ion-col>
+          <ion-col width-30>Allocation</ion-col>
+          <ion-col width-30>Chevaux</ion-col>
+        </ion-row>
+
+        <ion-row *ngFor="let member of members">
+          <ion-col width-40> {{member.Eleveur.nom_prenom}}</ion-col>
+          <ion-col width-30> {{member.Course.allocation}}</ion-col>
+          <ion-col width-30> {{member.Cheval.nom}} </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+  <!-- Entraieur  -->
+  <div *ngIf="vainquer.chevaux=='Entraineur'">
+
+    <div [ngSwitch]="segment">
+      <ion-grid *ngSwitchCase="'Vainqueur'">
+        <h2>Entraineurs</h2>
+        <ion-row style="background-color: #eae2cd ; font-weight: bold ;">
+          <ion-col>Entraineurs</ion-col>
+          <ion-col>prix</ion-col>
+          <ion-col>Distance</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let member of members">
+          <ion-col> {{member.Entraineur.nom_prenom}}</ion-col>
+
+          <ion-col> {{member.Course.nom_du_prix}}</ion-col>
+
+          <ion-col> {{member.Course.distance}}</ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid *ngSwitchCase="'suivant'">
+        <h2>{{type}}</h2>
+        <ion-row style="background-color: #eae2cd ; font-weight: bold ;">
+          <ion-col>Entraineurs</ion-col>
+          <ion-col>Allocation</ion-col>
+          <ion-col>Chevaux</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let member of members">
+          <ion-col> {{member.Entraineur.nom_prenom}}</ion-col>
+          <ion-col> {{member.Course.allocation}}</ion-col>
+          <ion-col> {{member.Cheval.nom}} </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+  <!-- jockey -->
+  <div *ngIf="vainquer.chevaux=='Jockey'">
+    <div [ngSwitch]="segment">
+      <ion-grid *ngSwitchCase="'Vainqueur'">
+        <h2>Jockeys</h2>
+        <ion-row style="background-color: #eae2cd ; font-weight: bold ;">
+          <ion-col>Jockeys</ion-col>
+          <ion-col>prix</ion-col>
+          <ion-col>Distance</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let member of members">
+          <ion-col> {{member.Jockey.nom_prenom}}</ion-col>
+
+          <ion-col> {{member.Course.nom_du_prix}}</ion-col>
+
+          <ion-col> {{member.Course.distance}}</ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid *ngSwitchCase="'Suivant'">
+        <h2>{{type}}</h2>
+        <ion-row style="background-color: #eae2cd ; font-weight: bold ;">
+          <ion-col>Jockeys</ion-col>
+          <ion-col>Allocation</ion-col>
+          <ion-col>Chevaux</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let member of members">
+          <ion-col> {{member.Jockey.nom_prenom}}</ion-col>
+          <ion-col> {{member.Course.allocation}}</ion-col>
+          <ion-col> {{member.Cheval.nom}} </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="navb" style="min-height: 47px; padding : 0px; text-align : center ;">
+    <ion-title class="style1"> <img src="assets/img/logo.png" /></ion-title>
+  </ion-toolbar>
+</ion-footer>

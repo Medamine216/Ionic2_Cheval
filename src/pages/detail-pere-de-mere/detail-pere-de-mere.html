@@ -1,0 +1,105 @@
+<!--
+  Generated template for the DetailPereDeMere page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-toolbar>
+
+    <ion-title style="text-align: center ;"> <img src="assets/img/logo1.png" height="60%" /> </ion-title>
+
+  </ion-toolbar>
+  <ion-navbar color="navb">
+    <ion-title> {{Course_Pere_Mere[0] }}
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div padding style="padding-bottom: 13px;">
+    <ion-segment [(ngModel)]="pere">
+      <ion-segment-button value="Production">
+        Production
+      </ion-segment-button>
+      <ion-segment-button value="Allocation">
+        Palmarés Production
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="pere">
+    <ion-grid *ngSwitchCase="'Production'">
+      <ion-row style="background-color: #eae2cd ; font-weight: bold; text-align: center; ">
+        <ion-col width-20 style="text-align: left ;">
+          Chevaux
+        </ion-col>
+
+        <ion-col width-15>
+          Né
+        </ion-col>
+
+        <ion-col width-15>
+          Sexe
+        </ion-col>
+        <ion-col width-25>
+          Mères
+        </ion-col>
+        <ion-col width-25 style="text-align: left ;">
+          Pères
+        </ion-col>
+      </ion-row>
+      <ion-row *ngFor="let member of members" (click)="View(member);">
+        <ion-col width-20  style="text-decoration-line: underline;"> <b> {{member.Cheval.nom}}</b> </ion-col>
+
+        <ion-col width-20 style="text-align: center ;"> {{member.Cheval.ne}} </ion-col>
+        <ion-col width-15 style="text-align: center ;">
+          <b *ngIf="member.Cheval.sexe==1">M</b>
+          <b *ngIf="member.Cheval.sexe==2">F</b>
+        </ion-col>
+        <ion-col width-25> {{member.Cheval.nom_m}} </ion-col>
+        <ion-col width-25> {{member.Cheval.nom_p}} </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngSwitchCase="'Allocation'">
+
+      <ion-row style="background-color: #eae2cd ;font-weight: bold; text-align:  center ;">
+        <ion-col width-20 style="text-align: left ;">
+          Chevaux
+        </ion-col>
+        <ion-col width-20>
+          Nb.Crs
+        </ion-col>
+        <ion-col width-20>
+          Vict
+        </ion-col>
+        <ion-col width-20>
+          Nb.Plc
+        </ion-col>
+        <ion-col width-20>
+          Alloc.Tot
+        </ion-col>
+      </ion-row>
+      <ion-row *ngFor="let member of members" (click)="View(member);">
+        <ion-col width-21  style="text-decoration-line: underline;"> <b>{{member.Cheval.nom}}</b></ion-col>
+
+
+        <ion-col width-20 style="text-align: center ;">
+          {{member.Course.length}}
+        </ion-col>
+        <ion-col width-20 style="text-align: center ;">{{filterDataAuto(member.Course).length}} </ion-col>
+        <ion-col width-20 style="text-align: center ;">{{member.Course.length - filterDataAuto(member.Course).length }} </ion-col>
+        <ion-col width-20 style="text-align: center ;"> {{reduceDataAuto(member.Course)}} </ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="navb" style="min-height: 47px; padding : 0px; text-align : center ;">
+    <ion-title class="style1"> <img src="assets/img/logo.png" /></ion-title>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,124 @@
+<!--Partier header-->
+<ion-header>
+  <div class="header_img">
+
+    <img src="assets/img/logo31.png"  height="100%"/>
+
+  </div>
+
+  <ion-navbar color="navb">
+
+    <ion-title style=" text-align: center;"> Acceuil </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<!--Partie container-->
+
+<ion-content>
+
+  <div class="btn-group">
+
+    <button ion-button onclick="this.className = ~className.indexOf(' demo1') ?className.replace(' demo1', ' ') : this.className + ' demo1';"
+      class="b1" block icon-right (click)="detailbtn(); clickFunction();"> Palmarés
+      <ion-icon  [name]="(isAdded) ? 'ios-arrow-down' : 'ios-arrow-forward'" ></ion-icon> 
+    </button>
+    
+    
+    <div class="btn-group2">
+      <ion-list no-lines>
+        <button ion-item (click)="changebtn(); clickFunction1();" onclick="this.className = ~className.indexOf(' demo1') ?className.replace(' demo1', ' ') : this.className + ' demo1';"
+          class="b1" detail-none>
+                Palmarès Chevaux
+                 <ion-icon  [name]="(isAdded1) ? 'ios-arrow-down' : 'ios-arrow-forward'" ></ion-icon>    
+        </button>
+
+        <div class="btn-group2">
+          <ion-list no-lines>
+            <button ion-item *ngFor="let item of items" (click)="Suivant(item);" detail-none>
+                {{ item }}      
+                <ion-icon  name="ios-arrow-forward" ></ion-icon>     
+               
+              </button>
+          </ion-list>
+        </div>
+
+
+
+        <button ion-item (click)="changebtn1(); clickFunction2();" onclick="this.className = ~className.indexOf(' demo1') ?className.replace(' demo1', ' ') : this.className + ' demo1';"
+          class="b1" detail-none>
+                Palmarès Personnes
+        <ion-icon  [name]="(isAdded2) ? 'ios-arrow-down' : 'ios-arrow-forward'" ></ion-icon>  
+        </button>
+       <!-- liste 2 -->
+        <div class="btn-group2">
+         
+          <ion-list >
+            <button ion-item  *ngFor="let item of Personnel" (click)="Suivant(item);"detail-none>
+                {{ item }}      
+                <ion-icon     name="ios-arrow-forward"></ion-icon>     
+
+              </button>
+          </ion-list>
+        </div>
+      </ion-list>
+
+    </div>
+
+    <button ion-button block (click)="clickFunction3();" onclick="this.className = ~className.indexOf(' demo1') ?className.replace(' demo1', ' ') : this.className + ' demo1';"
+      class="b1"> Consultez
+     <ion-icon  [name]="(isAdded3) ? 'ios-arrow-down' : 'ios-arrow-forward'" ></ion-icon>  
+    </button>
+
+    <!-- liste 2 -->
+    <div class="btn-group2">
+      <ion-list no-lines>
+        <button ion-item *ngFor="let item of consult" (click)="itemSelected(item)" (click)="Suivant(item);" detail-none>
+                {{ item }}      
+                <ion-icon     name="ios-arrow-forward"></ion-icon>     
+              </button>
+      </ion-list>
+    </div>
+
+
+    <button ion-button block icon-right (click)="displayList(); clickFunction4()" > Classement 
+      <ion-icon [name]="(isAdded4) ? 'ios-arrow-down' : 'ios-arrow-forward'"></ion-icon>
+    </button>
+    <!---liste 3 -->
+    <div *ngIf="isDisplaylist" >
+      <ion-list no-lines>
+        <button ion-item *ngFor="let cls of cls"  (click)="SuivantCLs(cls);" detail-none>
+                {{ cls }}      
+                <ion-icon     name="ios-arrow-forward"></ion-icon>     
+              </button>
+      </ion-list>
+    </div>
+
+    <button ion-button block icon-right>Saillie
+      <ion-icon  name="ios-arrow-forward"></ion-icon>
+    </button>
+
+  </div>
+</ion-content>
+
+
+<!--Partie footer-->
+<ion-footer>
+  <ion-toolbar color="navb">
+
+    <ion-buttons left>
+      <button ion-button icon-only>
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+
+
+    <ion-title class="style1"> <img src="assets/img/logo.png" /></ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="ios-arrow-up"> </ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

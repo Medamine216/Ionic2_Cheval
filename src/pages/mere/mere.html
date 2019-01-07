@@ -1,0 +1,51 @@
+<!--
+  Generated template for the Mere page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+<ion-toolbar >
+
+    <ion-title style="text-align: center ;"> <img src="assets/img/logo1.png"  height="60%" /> </ion-title>
+
+  </ion-toolbar>
+  <ion-navbar color ="navb">
+    <ion-title>Liste des Mères</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+ <ion-searchbar (keyup)="getItems($event)"> </ion-searchbar>
+      <ion-row style="background-color: #eae2cd; font-weight: bold ; text-align: center ;">
+
+    <ion-col width-40 style="text-align: left;">
+        <b> Mère </b>
+    </ion-col>
+     <ion-col width-30>
+         <b>  Né </b>
+    </ion-col>
+     <ion-col width-30>
+           <b> Race </b>
+    </ion-col>
+ 
+</ion-row>
+
+   <ion-row *ngFor="let m of searchMembers let i = index" (click)="View(m)"  >
+   <ion-col width-40> <b>  {{m[0]}} </b> </ion-col>
+
+    <ion-col width-30 style="text-align: center;"> {{m[1]}} </ion-col>
+    <ion-col width-30 style="text-align: center;">
+       <div *ngIf= " m[2] == 'ORIENTALE' "> (TN) </div> 
+      <div *ngIf= " m[2] == 'P.S.A' "> P.S.A </div>    
+  </ion-col>
+   </ion-row>
+</ion-content>
+     <ion-footer >
+    <ion-toolbar color="navb" style="min-height: 47px; padding : 0px; text-align : center ;">
+         <ion-title class="style1"> <img src="assets/img/logo.png" /></ion-title>
+    </ion-toolbar>
+  </ion-footer>
